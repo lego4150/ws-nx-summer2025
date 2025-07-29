@@ -12,11 +12,19 @@
             "enforceBuildableLibDependency": true,
             "allow": [],
             "depConstraints": [
-              {
-                "sourceTag": "*",
-                "onlyDependOnLibsWithTags": ["*"]
-              }
-            ]
+  {
+    "sourceTag": "scope:movies",
+    "onlyDependOnLibsWithTags": ["scope:movies", "scope:shared"]
+  },
+  {
+    "sourceTag": "scope:shared",
+    "onlyDependOnLibsWithTags": ["scope:shared"]
+  }
+  ,{
+    "sourceTag": "type:feature",
+    "onlyDependOnLibsWithTags": ["type:feature", "type:data-access", "type:ui", "type:util"]
+  }
+]
           }
         ]
       }
