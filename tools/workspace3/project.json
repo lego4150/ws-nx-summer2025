@@ -1,0 +1,41 @@
+{
+  "name": "workspace-tools3",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "tools/workspace3/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/tools/workspace3",
+        "main": "tools/workspace3/src/index.ts",
+        "tsConfig": "tools/workspace3/tsconfig.lib.json",
+        "assets": [
+          "tools/workspace3/*.md",
+          {
+            "input": "./tools/workspace3/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./tools/workspace3/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./tools/workspace3",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./tools/workspace3",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    }
+  }
+}

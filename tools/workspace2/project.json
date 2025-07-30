@@ -1,0 +1,41 @@
+{
+  "name": "workspace-tools2",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "tools/workspace2/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/tools/workspace2",
+        "main": "tools/workspace2/src/index.ts",
+        "tsConfig": "tools/workspace2/tsconfig.lib.json",
+        "assets": [
+          "tools/workspace2/*.md",
+          {
+            "input": "./tools/workspace2/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./tools/workspace2/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./tools/workspace2",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./tools/workspace2",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    }
+  }
+}
